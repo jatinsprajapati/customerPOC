@@ -1,0 +1,63 @@
+<div [@routerTransition]>
+
+    <div class="row">
+        <div class="col col-xl-12 col-lg-12">
+            <div class="card mb-3">
+                 <div class="card-header">
+                    Customer List
+                     <div class="pull-right">
+                         <a class="btn" [routerLink]="['/customerdetail/0']"><i class="fa fa-plus fa-lg"> </i><strong>&nbsp;Add New Customer</strong></a>
+
+                     </div>
+                </div>
+                <div class="card-body table-responsive">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table"><!--[mfData]="customerList" #mf="mfDataTable"-->
+
+                                    <thead>
+                                        <tr role="row">
+                                      <th>Short Name</th>
+                                            <th>Full Name</th>
+                                            <th>Debit Account</th>
+                                            <th>Credit Account</th>
+                                            <th>Sales Agent</th>
+                                            <th>Vendor</th>
+                                            <th>Agent</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let obj of customerList; let i=index;">
+                                            <td>{{obj.shortName}}</td>
+                                            <td>{{obj.fullName}}</td>
+                                            <td>{{obj.debitAcct}}</td>
+                                            <td>{{obj.creditAcct}}</td>
+                                            <td>{{obj.salesAgent}}</td>
+                                            <td>{{ obj.isVendor ? 'Yes' : 'No'}}</td>
+                                            <td>{{ obj.isAgent ? 'Yes' : 'No'}}</td>
+                                            <td>
+                                                <div>
+                                                    <a class="text-primary" [routerLink]="['/customerdetail',obj.id]"><i class="fa fa-edit fa-lg"></i></a> &nbsp;
+                                                    <a class="text-danger" (click)="deleteCustomer(obj.id)"><i class="fa fa-trash fa-lg"></i></a>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

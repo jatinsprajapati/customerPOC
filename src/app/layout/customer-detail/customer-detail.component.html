@@ -1,0 +1,108 @@
+<!--<div [@routerTransition]>-->
+<!--<app-page-header [heading]="'Customer-Details'" ></app-page-header>-->
+<div class="form-row">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Customer</a></li>
+                <li class="breadcrumb-item"><a>Details</a></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form [formGroup]="myForm">
+            <div class=" form-group form-row">
+                <div class="col-md-3">
+                    <label for="inputFirstName">Short Name</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="inputShortName" placeholder="Short Name" formControlName="shortName">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <div class="col-md-3">
+                    <label for="inputFirstName">Full Name</label><span class="text-danger">*</span>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="inputFullName" placeholder="Full Name" formControlName="fullName">
+                    <em style="color:red" *ngIf="!myForm.get('fullName').valid && (myForm.get('fullName').dirty || myForm.get('fullName').touched)">Full Name is required</em>
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <div class="col-md-3">
+                    <label for="inputFirstName">Debit Account</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="inputdebitacc" placeholder="Debit Account" formControlName="debitAcct">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <div class="col-md-3">
+                    <label for="inputFirstName">Credit Account </label><span class="text-danger">*</span>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="inputcreditacc" placeholder="Credit Account" formControlName="creditAcct">
+                    <em style="color:red" *ngIf="!myForm.get('creditAcct').valid && (myForm.get('creditAcct').dirty || myForm.get('creditAcct').touched)">Credit Account is required</em>
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <div class="col-md-3">
+                    <label for="inputFirstName">Sales Agent</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="inputsalesAgent" placeholder="Sales Agent" formControlName="salesAgent">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <div class="col-md-3">
+                    <label for="inputFirstName">Type</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="form-group form-label-group col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" formControlName="isPickup"> Pickup
+                                </label>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="" formControlName="isDelivery"> Delievery
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-label-group col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" formControlName="isAgent"> Agent
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" formControlName="isVendor"> Vendor
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group form-label-group">
+                <div class="btn pull-right">
+                    <button class="btn btn-sm btn-primary text-uppercase mt-3 mr-2" type="submit" (click)="onSubmit()" [disabled]="!myForm.valid">Submit</button>
+                    <button class="btn btn-sm btn-secondary text-uppercase mt-3 ml-2" type="reset" (click)="resetForm()">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
